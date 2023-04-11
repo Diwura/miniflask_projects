@@ -1,0 +1,9 @@
+api/.env
+api/instance
+api/venv
+crypto/instance
+crypto/.env
+crypto/venv
+image_processor_saas/instance
+image_processor_saas/.env
+image_processor_saas/venv

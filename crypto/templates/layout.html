@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href={{ url_for('static',filename="main.css") }}>
+</head>
+<body>
+   <div class="navbar">
+    <ul>
+        <li ><a href={{ url_for('home') }} >Home </a></li>
+        <li ><a href={{ url_for('transact') }} >Create Transaction </a></li>
+
+        {% if current_user.is_authenticated %}
+        <li ><a href={{ url_for('transact') }}> {{current_user.amount}} $ </a></li>
+        <li ><a href={{ url_for('logout') }}> Logout </a></li>
+        {% else %}
+        <li ><a href={{ url_for('signup') }}> SignUp </a></li>
+        <li ><a href={{ url_for('login') }} >Login </a></li>
+        {% endif %}    
+        
+    </ul>
+   </div> 
+ <div class="content">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h1> {{ message }}  </h1>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+
+    <div class="page">
+        {% if current_user.is_authenticated %}
+        <h1> hi {{ current_user.username}} </h1> 
+        <h3> your wallet_address is   {{ current_user.wallet}}</h3> 
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+
+    </div>
+</div>
+ 
+</body>
+</html>

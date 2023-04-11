@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    background-color: goldenrod;
+}
+
+ul{ margin:0;
+    list-style-type:none;
+    display:flex;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+    background-color: blue;
+    height: 10vh;
+}
+
+li{
+    margin-left: 1rem;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    margin:5px
+}
+
+.navbar{
+    margin: 0;
+  
+
+}
+
+.page{
+    width:100vw;
+    height:90vh;
+   display:grid;
+   place-items: center;
+   background: gold;
+}

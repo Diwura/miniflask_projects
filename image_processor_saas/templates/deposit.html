@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+<form method="POST" action={{ url_for('depositsuccessfull') }}>
+    <input type="text" name="amount"/>
+    <input type="submit">
+</form>
+
+{% endblock %}

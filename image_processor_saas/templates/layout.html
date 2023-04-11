@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <h1> {{ message }}  </h1>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+{% if current_user.is_authenticated %}
+<h1> hi {{ current_user.username}} </h1>
+    {% if current_user.hassubscription %}
+    <h1> PREMIUM USER </h1>
+    {% else %}
+    <h3>  you have {{ current_user.wallet}} in your wallet </h3>
+    {% endif %}
+
+{% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>
